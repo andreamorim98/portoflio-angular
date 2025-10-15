@@ -11,11 +11,13 @@ import {
 } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { finalize } from 'rxjs';
 import { ErrorDialogComponent } from '../shared/components/error-dialog-component/error-dialog-component';
+import { CategoryPipe } from '../shared/pipes/category-pipe-pipe';
 import { CourseInterface } from './models/course.interface';
 import { CoursesService } from './services/courses-service';
 
@@ -28,6 +30,8 @@ import { CoursesService } from './services/courses-service';
     MatToolbarModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    MatIconModule,
+    CategoryPipe,
   ],
   providers: [CoursesService, HttpClient],
   standalone: true,
