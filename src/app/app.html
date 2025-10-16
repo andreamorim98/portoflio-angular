@@ -2,6 +2,12 @@
   <span> {{ title }}</span>
 </mat-toolbar>
 
+@if (isDisplayBackButton()) {
+<div class="pl-[16px] pt-[10px] pb-[10px]">
+  <button mat-button (click)="onBack()">Back</button>
+</div>
+}
+
 <div class="p-[16px]">
   <router-outlet />
 </div>

@@ -13,7 +13,7 @@ export class NavigationService {
     this.router.navigate(path, { relativeTo: this.activatedRoute });
   }
 
-  public getCurrentRoute(): ActivatedRoute {
-    return this.activatedRoute;
+  public getCurrentRoute(): string {
+    return this.router.url;
   }
 }
