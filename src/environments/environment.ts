@@ -5,5 +5,5 @@ export const environment = {
   // More details at: https://angular.io/guide/build#proxying-to-a-backend-server
   // apiUrl: 'http://localhost:8080/api/',
   apiUrl: 'api/',
-  appName: "Andre's Portfolio Angular",
+  appName: "Andre's Angular Portfolio",
 };
