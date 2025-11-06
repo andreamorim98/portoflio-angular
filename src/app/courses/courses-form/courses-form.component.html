@@ -13,19 +13,25 @@
       }
     </mat-form-field>
 
-    <mat-form-field class="mt-[8px]">
-      <mat-label> Category </mat-label>
-      <input matInput formControlName="category" />
-
-      @if (form.get('category')?.invalid) {
-      <mat-error> Category is required </mat-error>
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option value="null"> </mat-option>
+        <mat-option value="front-end">Front-End</mat-option>
+        <mat-option value="back-end">Back-End</mat-option>
+      </mat-select>
+      @if (form.get('category')?.hasError('required')) {
+      <mat-error>Category is required</mat-error>
       }
     </mat-form-field>
   </form>
 
-  <div class="flex justify-end pr-[16px] pl-[16px] pb-[16px]">
+  <div
+    class="flex pr-[16px] pl-[16px] pb-[16px]"
+    [ngClass]="{ 'flex-col': isMobile(), 'flex-row justify-end': isDesktop() || isTablet() }"
+  >
     <button
-      class="w-full sm:w-auto mr-[16px]"
+      [ngClass]="{ 'w-full mb-[16px]': isMobile(), ' mr-[16px]': isTablet() || isDesktop() }"
       matButton="outlined"
       matTooltip="Cancel course creation"
       type="button"
@@ -35,7 +41,7 @@
     </button>
 
     <button
-      class="w-full sm:w-auto"
+      [ngClass]="{ 'w-full': isMobile(), ' mr-[16px]': isTablet() || isDesktop() }"
       mat-raised-button
       matTooltip="Create course"
       color="primary"

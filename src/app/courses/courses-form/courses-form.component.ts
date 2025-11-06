@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -5,8 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCard } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltip } from '@angular/material/tooltip';
+import { ScreenSizeBase } from '../../shared/base/screen-size.base';
 import { NavigationPathsEnum } from '../../shared/enums/navigation-paths.enum';
 import { NavigationService } from '../../shared/services/navigation.service';
 import { CoursesHttpService } from '../services/courses-http.service';
@@ -22,6 +25,8 @@ import { CoursesHttpService } from '../services/courses-http.service';
     HttpClientModule,
     MatButtonModule,
     MatTooltip,
+    MatSelectModule,
+    CommonModule,
   ],
   providers: [CoursesHttpService],
   standalone: true,
@@ -29,7 +34,7 @@ import { CoursesHttpService } from '../services/courses-http.service';
   templateUrl: './courses-form.component.html',
   styles: [``],
 })
-export class CoursesFormComponent {
+export class CoursesFormComponent extends ScreenSizeBase {
   private readonly formBuilder = inject(FormBuilder);
   private readonly courseHttpService = inject(CoursesHttpService);
   private readonly navigationService = inject(NavigationService);
