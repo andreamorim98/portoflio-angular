@@ -41,7 +41,7 @@
           matIconButton
           aria-label="Delete button"
           matTooltip="Delete course"
-          (click)="delete(course.id)"
+          (click)="openConfirmationDeleteDialog(course.id)"
         >
           <mat-icon>delete</mat-icon>
         </button>
