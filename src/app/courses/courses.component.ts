@@ -57,10 +57,26 @@ export class CoursesComponent implements OnInit {
     this.getCoursesList();
   }
 
-  public addCourse(): void {
+  public add(): void {
     this.navigationService.navigateTo([
       `${NavigationPathsEnum.COURSES}/${NavigationPathsEnum.NEW_COURSE}`,
     ]);
+  }
+
+  public edit(courseId: string): void {
+    this.navigationService.navigateTo([`${NavigationPathsEnum.COURSES}/${courseId}`]);
+  }
+
+  public delete(courseId: string): void {
+    this.coursesService.delete(courseId).subscribe({
+      next: () => {
+        this.getCoursesList();
+      },
+      error: (error) => {
+        console.error(error);
+        this.openErrorDialog(error?.message ?? 'An issue happened while deleting the course');
+      },
+    });
   }
 
   private getCoursesList(): void {

@@ -9,4 +9,8 @@ export const coursesRoutes: Routes = [
     path: NavigationPathsEnum.NEW_COURSE,
     component: CoursesFormComponent,
   },
+  {
+    path: ':id',
+    component: CoursesFormComponent,
+  },
 ];

@@ -13,7 +13,23 @@ export class CoursesHttpService {
     return this.httpClient.get<CourseInterface[]>(this.apiUrl);
   }
 
+  public findById(id: string): Observable<CourseInterface> {
+    return this.httpClient.get<CourseInterface>(`${this.apiUrl}/${id}`);
+  }
+
   public create(course: CourseInterface): Observable<CourseInterface> {
     return this.httpClient.post<CourseInterface>(this.apiUrl, course);
+  }
+
+  public update(id: string, course: CourseInterface): Observable<CourseInterface> {
+    return this.httpClient.put<CourseInterface>(`${this.apiUrl}/${id}`, course);
+  }
+
+  public delete(id: string): Observable<void> {
+    return this.httpClient.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  public deleteAll(): Observable<void> {
+    return this.httpClient.delete<void>(`${this.apiUrl}/deleteAll`);
   }
 }

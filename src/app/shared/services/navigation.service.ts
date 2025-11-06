@@ -16,4 +16,21 @@ export class NavigationService {
   public getCurrentRoute(): string {
     return this.router.url;
   }
+
+  public getQueryParam(param: string): string {
+    return this.activatedRoute.snapshot.queryParams[param];
+  }
+
+  public getParam(param: string): string | null {
+    return this.getDeepestRoute().snapshot.paramMap.get(param);
+  }
+
+  // Helper: returns the deepest ActivatedRoute (current active route)
+  private getDeepestRoute(): ActivatedRoute {
+    let route: ActivatedRoute = this.router.routerState.root;
+    while (route.firstChild) {
+      route = route.firstChild;
+    }
+    return route;
+  }
 }

@@ -1,6 +1,6 @@
 <mat-card>
   <mat-toolbar>
-    <span> Add new course </span>
+    <span> {{ courseId ? 'Edit' : 'Add new' }} course </span>
   </mat-toolbar>
 
   <form [formGroup]="form" class="flex flex-col p-[16px]">
@@ -43,13 +43,13 @@
     <button
       [ngClass]="{ 'w-full': isMobile(), ' mr-[16px]': isTablet() || isDesktop() }"
       mat-raised-button
-      matTooltip="Create course"
+      [matTooltip]="courseId ? 'Update course' : 'Create course'"
       color="primary"
       type="submit"
       (click)="onSubmit()"
       [disabled]="form.invalid"
     >
-      Create
+      {{ courseId ? 'Update' : 'Create' }}
     </button>
   </div>
 </mat-card>

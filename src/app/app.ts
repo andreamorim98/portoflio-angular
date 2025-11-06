@@ -1,18 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterOutlet } from '@angular/router';
 import { environment } from '../environments/environment';
+import { ScreenSizeBase } from './shared/base/screen-size.base';
 import { NavigationPathsEnum } from './shared/enums/navigation-paths.enum';
 import { NavigationService } from './shared/services/navigation.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbar, MatButtonModule],
+  imports: [RouterOutlet, MatToolbar, MatButtonModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
+export class App extends ScreenSizeBase {
   private readonly _navigationService = inject(NavigationService);
 
   public readonly title: string = environment.appName;

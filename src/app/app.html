@@ -8,6 +8,9 @@
 </div>
 }
 
-<div class="p-[16px]">
+<div
+  class="p-[16px]"
+  [ngClass]="{ 'w-full': isMobile() || isTablet(), 'max-w-[900px] mx-auto': isDesktop() }"
+>
   <router-outlet />
 </div>
